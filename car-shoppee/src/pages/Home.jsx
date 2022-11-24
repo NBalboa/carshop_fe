@@ -10,10 +10,12 @@ import Brand4 from '../assets/img/brand-4.png'
 import Brand5 from '../assets/img/brand-5.png'
 import Cards from '../components/Cards'
 import Product from '../components/Product'
+import NavBar from '../components/NavBar'
 
 function Home() {
     return (
         <div>
+            <NavBar/>
             <div id='carouselHighlightedProducts' className='carousel slide m-4' data-bs-ride="true">
                 <div className='carousel-indicators'>
                     <button type='button' data-bs-target="#carouselHighlightedProducts" data-bs-slide-to='0' className='active' aria-current="true" aria-label="First Slide"></button>

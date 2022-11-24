@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
+
 function NavBar() {
 
     return (
@@ -35,7 +36,7 @@ function NavBar() {
                     </ul>
                     <ul className='navbar-nav ms-md-auto gap-2'>
                         <li className='navbar-item rounded'>
-                            <a className='nav-link active text-white fs-5' href='#'>Login</a>
+                            <Link className='nav-link active text-white fs-5' to='/login'>Login</Link>
                         </li>
                         <li className='navbar-item rounded'>
                             <a className='nav-link active text-white fs-5' href='#'>Cart</a>
