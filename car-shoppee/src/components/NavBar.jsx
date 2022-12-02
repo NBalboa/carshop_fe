@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../assets/img/sample-logo.webp'
+import Logo from '../assets/img/Logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -13,8 +13,8 @@ function NavBar() {
         <nav className='navbar navbar-expand-lg bg-dark'>
             <div className='container-fluid'>
                 <Link className='navbar-brand text-light fs-2' to='/'>
-                    <img src={Logo} alt='Logo' height='40' className="me-3"></img>
-                    Car Shoppee
+                    <img src={Logo} alt='Logo' width='100' className="me-3"></img>
+                    AYTOK' INHTO
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -28,18 +28,24 @@ function NavBar() {
                             <Link className='nav-link active text-light fs-5' to='/products'>Products</Link>
                         </li>
                         <li className='navbar-item rounded'>
-                            <a className='nav-link active text-light fs-5' href='#'>About Us</a>
+                            <Link className='nav-link active text-light fs-5' to='/about'>About Us</Link>
                         </li>
                         <li className='navbar-item rounded'>
-                            <a className='nav-link active text-light fs-5' href='#'>Contacts</a>
+                            <Link className='nav-link active text-light fs-5' to='/contact'>Contacts</Link>
                         </li>
+                        
                     </ul>
+                 
                     <ul className='navbar-nav ms-md-auto gap-2'>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                            <button class="btn btn-outline-success w-25" type="submit">Search</button>
+                        </form>
                         <li className='navbar-item rounded'>
                             <Link className='nav-link active text-white fs-5' to='/login'>Login</Link>
                         </li>
                         <li className='navbar-item rounded'>
-                            <a className='nav-link active text-white fs-5' href='#'>Cart</a>
+                            <Link className='nav-link active text-white fs-5' to='/cart'>Cart</Link>
                         </li>
                     </ul>
                 </div>

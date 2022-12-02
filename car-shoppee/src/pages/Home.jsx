@@ -14,8 +14,9 @@ import NavBar from '../components/NavBar'
 
 function Home() {
     return (
+
         <div>
-            <NavBar/>
+            <NavBar />
             <div id='carouselHighlightedProducts' className='carousel slide m-4' data-bs-ride="true">
                 <div className='carousel-indicators'>
                     <button type='button' data-bs-target="#carouselHighlightedProducts" data-bs-slide-to='0' className='active' aria-current="true" aria-label="First Slide"></button>
@@ -45,20 +46,24 @@ function Home() {
             <div className='container-lg mb-5'>
                 <h1 className='text-dark'>Brands</h1>
                 <div className='card-group mt-2'>
-                    <Cards image={Brand1}/>
-                    <Cards image={Brand2}/>
-                    <Cards image={Brand3}/>
-                    <Cards image={Brand4}/>
-                    <Cards image={Brand5}/>
+                    <Cards image={Brand1} />
+                    <Cards image={Brand2} />
+                    <Cards image={Brand3} />
+                    <Cards image={Brand4} />
+                    <Cards image={Brand5} />
                 </div>
             </div>
             <div className='container-lg mb-5'>
-                <h1>Products</h1>
-                <Product image={Product1}/>
-                <Product image={Product1}/>
-                <Product image={Product1}/>
-                <Product image={Product1}/>
-                <Product image={Product1}/>
+                <h1>Featured Products</h1>
+                <div className='row gap-3'>
+                    <Product image={Product1} />
+                    <Product image={Product1} />
+                    <Product image={Product1} />
+                    <Product image={Product1} />
+                    <Product image={Product1} />
+                    <Product image={Product1}/>
+                </div>
+
             </div>
         </div>
     )

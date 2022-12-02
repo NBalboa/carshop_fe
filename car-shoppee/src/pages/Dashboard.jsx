@@ -4,7 +4,10 @@ import NavAdmin from '../components/NavAdmin'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <NavAdmin/>
+      <h1>Dashboard</h1>
+    </div>
   )
 }
 
