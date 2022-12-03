@@ -40,13 +40,13 @@ function Login() {
           </div>
         </div>
         <div>
-          <h3>Login Page</h3>
+          <h3>Sign-in</h3>
           <div>
-            {/* <img src={email} alt="email" className="email"/> */}
+           
             <input type="text" placeholder="Email" className="name" value={email} onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div className="second-input">
-            {/* <img src={pass} alt="pass" className="email"/> */}
+            
             <input type="password" placeholder="Password" className="name" value={password} onChange = {(e) => setPassword(e.target.value)}/>
           </div>
           <div className="login-button">

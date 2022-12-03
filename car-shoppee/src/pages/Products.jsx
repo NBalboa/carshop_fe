@@ -13,13 +13,57 @@ import Row from 'react-bootstrap/Row'
 import "../assets/css/products.css"
 import {BsSearch} from "react-icons/bs"
 function Products() {
+    const [items,setItem] = useState([
+        {
+            id: 1,
+            name: "Car Paint",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "my description bitch",
+        },
+        {
+            id: 2,
+            name: "Car Paint",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "my description bitch",
+        },
+        {
+            id: 3,
+            name: "Car Paint",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "my description bitch",
+        },
+        {
+            id: 4,
+            name: "Car Paint",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "my description bitch",
+        },
+        {
+            id: 5,
+            name: "Car Paint",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "my description bitch",
+        },
+        {
+            id: 6,
+            name: "Car Paint",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "my description bitch",
+        }
+    ])
     return (
         <div>
             <NavBar/>
             <Container className="m-5 col-8">
             <Row className="gap-4">
-            <div class="modal-body">
-                    <div class="search">
+            <div className="modal-body">
+                    <div className="search">
                         <form action="">
                             <input type="text" placeholder="Search..."/>
                             <select name="" id="">
@@ -34,12 +78,7 @@ function Products() {
             </Container>
             <Container className="m-5">
                 <Row className="gap-4">
-                    <Product image={Brand1} />
-                    <Product image={Brand1} />
-                    <Product image={Brand1} />
-                    <Product image={Brand1} />
-                    <Product image={Brand1} />
-                    <Product image={Brand1} />
+                    {items.map(item => <Product key={item.id} product={item}/>)}
                 </Row>
             </Container>
             

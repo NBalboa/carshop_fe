@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import NavBar from '../components/NavBar'
 import {
   MDBBtn,
@@ -16,9 +16,17 @@ import Row from 'react-bootstrap/Row'
 import Brand2 from "../assets/img/brand-2.png"
 import Product from "../components/Product";
 import Cards from '../components/Cards'
+import { Link } from 'react-router-dom';
+import AddToCart from '../components/AddToCart';
+import {useSelector, useDispatch} from 'react-redux';
+import { getTotal } from "../features/cartSlice";
 
 
 function Cart() {
+  const cart = useSelector((item) => item.user)
+  const totalPrice = cart.cartItems.reduce((acc, item) => acc + item.cartQuantity * item.price, 0).toFixed(2);
+  const totalQuantity = cart.cartItems.reduce((acc, item) => acc + item.cartQuantity + 0, 0);
+  console.log(totalQuantity);
   return (
     <div>
         <NavBar/>
@@ -28,66 +36,21 @@ function Cart() {
           <MDBCol>
             <p>
               <span className="h2">Shopping Cart </span>
-             
             </p>
-
             <MDBCard className="mb-4">
               <MDBCardBody className="p-4">
-                <MDBRow className="align-items-center">
-                  <MDBCol md="2">
-                  <Container className="m-5">
-                <Row className="gap-4">
-                    <Cards image={Brand2} />
-                    </Row>
-                    </Container>
-                  </MDBCol>
-                  <MDBCol md="2" className="d-flex justify-content-center">
-                    <div>
-                      <p className="small text-muted mb-4 pb-2">Product Name</p>
-                      <p className="lead fw-normal mb-0">Item 1</p>
-                    </div>
-                  </MDBCol>
-                  {/* <MDBCol md="2" className="d-flex justify-content-center">
-                    <div>
-                      <p className="small text-muted mb-4 pb-2">Color</p>
-                      <p className="lead fw-normal mb-0">
-                        <MDBIcon
-                          fas
-                          icon="circle me-2"
-                          style={{ color: "#fdd8d2" }}
-                        />
-                        pink rose
-                      </p>
-                    </div>
-                  </MDBCol> */}
-                  <MDBCol md="2" className="d-flex justify-content-center">
-                    <div>
-                      <p className="small text-muted mb-4 pb-2">Quantity</p>
-                      <p className="lead fw-normal mb-0">1</p>
-                    </div>
-                  </MDBCol>
-                  <MDBCol md="2" className="d-flex justify-content-center">
-                    <div>
-                      <p className="small text-muted mb-4 pb-2">Price</p>
-                      <p className="lead fw-normal mb-0">$799</p>
-                    </div>
-                  </MDBCol>
-                  <MDBCol md="2" className="d-flex justify-content-center">
-                    <div>
-                      <p className="small text-muted mb-4 pb-2">Total</p>
-                      <p className="lead fw-normal mb-0">$799</p>
-                    </div>
-                  </MDBCol>
-                </MDBRow>
+                {cart.cartItems.length === 0 ? (<h1>Empty Carty</h1>): (
+                  cart.cartItems.map((item) => <AddToCart key={item.id} product={item}/>)
+                )} 
               </MDBCardBody>
             </MDBCard>
-
+            
             <MDBCard className="mb-5">
               <MDBCardBody className="p-4">
                 <div className="float-end">
                   <p className="mb-0 me-5 d-flex align-items-center">
                     <span className="small text-muted me-2">Order total:</span>
-                    <span className="lead fw-normal">$799</span>
+                    <span className="lead fw-normal">P{totalPrice}</span>
                   </p>
                 </div>
               </MDBCardBody>
@@ -97,13 +60,12 @@ function Cart() {
               <MDBBtn color="light" size="lg" className="me-2">
                 Continue shopping
               </MDBBtn>
-              <MDBBtn size="lg">Add to cart</MDBBtn>
+              <MDBBtn size="lg"><Link className='text-decoration-none text-dark' to='/checkout'>Check Out</Link></MDBBtn>
             </div>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
     </section>
-       
     </div>
   );
 }

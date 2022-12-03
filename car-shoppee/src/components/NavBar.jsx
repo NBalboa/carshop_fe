@@ -1,8 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/img/Logo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 
@@ -37,9 +36,9 @@ function NavBar() {
                     </ul>
                  
                     <ul className='navbar-nav ms-md-auto gap-2'>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button class="btn btn-outline-success w-25" type="submit">Search</button>
+                        <form className="d-flex" role="search">
+                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                            <button className="btn btn-outline-success w-25" type="submit">Search</button>
                         </form>
                         <li className='navbar-item rounded'>
                             <Link className='nav-link active text-white fs-5' to='/login'>Login</Link>

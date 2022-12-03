@@ -1,12 +1,12 @@
 import React from 'react'
 import NavAdmin from '../components/NavAdmin'
+import SideBar from '../components/Sidebar'
 
 
 function Dashboard() {
   return (
-    <div>
-      <NavAdmin/>
-      <h1>Dashboard</h1>
+    <div className='wrapper'>
+      <SideBar/>
     </div>
   )
 }

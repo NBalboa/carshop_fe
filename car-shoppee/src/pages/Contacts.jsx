@@ -5,23 +5,23 @@ function Contacts() {
   return (
     <div>
     <NavBar />
-            <form class="row g-3 mt-4 row justify-content-center">
-        <div class="col-md-5">
-            <label for="inputEmail4" class="form-label"><h1>Contact Us</h1></label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder='Email' />
+        <form className="row g-3 mt-4 row justify-content-center">
+        <div className="col-md-5">
+            <label htmlFor="inputEmail4" className="form-label"><h1>Contact Us</h1></label>
+            <input type="name" className="form-control" id="inputName4" placeholder='Your Name' />
         </div>
         <span />
-        <div class="col-md-5">
-            <input type="password" class="form-control mt-20" id="inputPassword4" placeholder='Password'/>
-        </div>
+          <div className="col-md-5">
+              <input type="email" className="form-control mt-20" id="inputEmail" placeholder='Email'/>
+          </div>
         <span />
         <div className='col-md-5'>
-        <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea" placeholder='Your Message Please Senpai'></textarea>
-        </div>
-        <div class="col-5 mt-3">
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
+          <div className="input-group">
+            <textarea className="form-control" aria-label="With textarea" placeholder='Your Message ' rows='10'></textarea>
+          </div>
+          <div className="col-5 mt-3">
+            <button type="submit" className="btn btn-primary">Send Message</button>
+          </div>
         </div>
         </form>
     </div>

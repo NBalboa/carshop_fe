@@ -4,7 +4,9 @@ import NavAdmin from '../components/NavAdmin'
 
 function ProductAdmin() {
   return (
-    <div>ProductAdmin</div>
+    <div>
+      ProductAdmin
+    </div>
   )
 }
 

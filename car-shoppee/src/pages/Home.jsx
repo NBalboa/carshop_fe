@@ -1,18 +1,70 @@
 import React from 'react'
 import { useState } from 'react'
-import Product1 from '../assets/img/car-1.webp'
-import Product2 from '../assets/img/car-2.jpeg'
-import Product3 from '../assets/img/car-3.jpg'
-import Brand1 from '../assets/img/brand-1.png'
-import Brand2 from '../assets/img/brand-2.png'
-import Brand3 from '../assets/img/brand-3.png'
-import Brand4 from '../assets/img/brand-4.png'
-import Brand5 from '../assets/img/brand-5.png'
+import Brand1 from '../assets/img/headlight.jpg'
+import Brand2 from '../assets/img/light.jpg'
+import Brand3 from '../assets/img/mirror.jpg'
+import Brand4 from '../assets/img/steeringwheel.jpg'
+import Brand5 from '../assets/img/door.jpeg'
+import Brand6 from '../assets/img/handle.jpg'
 import Cards from '../components/Cards'
 import Product from '../components/Product'
 import NavBar from '../components/NavBar'
+import datas from '../data/datas'
+import honda from '../assets/img/honda.jpg'
+import suzuki from '../assets/img/suzuki.jpg'
+import forrd from '../assets/img/forrd.jpg'
+import hondalogo from '../assets/img/fordlogo.jpg'
+import suzukilogo from '../assets/img/suzukilogo.jpg'
+import fordlogo from '../assets/img/fordlogo.jpg'
+import {useDispatch} from "react-redux"
 
 function Home() {
+    const [items,setItem] = useState([
+        {
+            id: 1,
+            name: "Headlight",
+            price: 1000.00,
+            path: Brand1 ,
+            description: "A light with a reflector and special lens mounted on the front of a vehicle to illuminate the road ahead",
+        },
+        {
+            id: 2,
+            name: "BreakLight",
+            price: 1000.00,
+            path: Brand2 ,
+            description: "A red light attached to the rear of a motor vehicle that lights up when the brakes are applied."
+        },
+        {
+            id: 3,
+            name: "Mirror",
+            price: 1000.00,
+            path: Brand3 ,
+            description: "my description bitch",
+        },
+        {
+            id: 4,
+            name: "Steering Wheel",
+            price: 1000.00,
+            path: Brand4 ,
+            description: "my description bitch",
+        },
+        {
+            id: 5,
+            name: "Door",
+            price: 1000.00,
+            path: Brand5 ,
+            description: "my description bitch",
+        },
+        {
+            id: 6,
+            name: "Handle",
+            price: 1000.00,
+            path: Brand6 ,
+            description: "my description bitch",
+        }
+    ])
+
+
     return (
 
         <div>
@@ -25,13 +77,13 @@ function Home() {
                 </div>
                 <div className='carousel-inner'>
                     <div className='carousel-item active '>
-                        <img src={Product1} className='w-100' height="400" alt='Product'></img>
+                        <img src={honda} className='w-100' height="400" alt='honda'></img>
                     </div>
                     <div className='carousel-item active '>
-                        <img src={Product2} className='w-100' height="400" alt='Product'></img>
+                        <img src={suzuki} className='w-100' height="400" alt='suzuki'></img>
                     </div>
                     <div className='carousel-item active '>
-                        <img src={Product3} className='w-100 ' height="400" alt='Product'></img>
+                        <img src={forrd} className='w-100 ' height="400" alt='forrd'></img>
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselHighlightedProducts" data-bs-slide="prev">
@@ -46,22 +98,17 @@ function Home() {
             <div className='container-lg mb-5'>
                 <h1 className='text-dark'>Brands</h1>
                 <div className='card-group mt-2'>
-                    <Cards image={Brand1} />
-                    <Cards image={Brand2} />
-                    <Cards image={Brand3} />
-                    <Cards image={Brand4} />
-                    <Cards image={Brand5} />
+                    <Cards image={hondalogo} />
+                    <Cards image={suzukilogo} />
+                    <Cards image={fordlogo} />
+                    <Cards image={suzukilogo} />
+                    <Cards image={hondalogo} />
                 </div>
             </div>
             <div className='container-lg mb-5'>
                 <h1>Featured Products</h1>
                 <div className='row gap-3'>
-                    <Product image={Product1} />
-                    <Product image={Product1} />
-                    <Product image={Product1} />
-                    <Product image={Product1} />
-                    <Product image={Product1} />
-                    <Product image={Product1}/>
+                {items.map(item => <Product key={item.id} product={item}/>)}
                 </div>
 
             </div>
