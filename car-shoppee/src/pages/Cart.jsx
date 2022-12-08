@@ -57,10 +57,10 @@ function Cart() {
             </MDBCard>
 
             <div className="d-flex justify-content-end">
-              <MDBBtn color="light" size="lg" className="me-2">
+              <MDBBtn color="dark" size="lg" className="me-2">
                 Continue shopping
               </MDBBtn>
-              <MDBBtn size="lg"><Link className='text-decoration-none text-dark' to='/checkout'>Check Out</Link></MDBBtn>
+              <MDBBtn size="lg" color="secondary"><Link className='text-decoration-none text-dark' to='/checkout'>Check Out</Link></MDBBtn>
             </div>
           </MDBCol>
         </MDBRow>

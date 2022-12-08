@@ -20,7 +20,7 @@ function Contacts() {
             <textarea className="form-control" aria-label="With textarea" placeholder='Your Message ' rows='10'></textarea>
           </div>
           <div className="col-5 mt-3">
-            <button type="submit" className="btn btn-primary">Send Message</button>
+            <button type="submit" className="btn btn-dark">Send Message</button>
           </div>
         </div>
         </form>

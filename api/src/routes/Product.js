@@ -42,9 +42,9 @@ router.post('/add', async function(req, res) {
     const db = new Database();
     const conn = db.connection;
 
-    const {name,brand,price,description,stocks,featured, thumbnails,category} = req.body
+    const {name,brand,price,description,stocks,featured, thumbnails,category,main_image} = req.body
 
-    const query = "INSERT INTO products(name, brand,price,description,stocks,featured,thumbnails,category, created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)"
+    const query = "INSERT INTO products(name, brand,price,description,stocks,featured,thumbnails,category,main_image, created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
     date_now = date = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const values = [
         name,
@@ -55,6 +55,7 @@ router.post('/add', async function(req, res) {
         featured,
         JSON.stringify(thumbnails),
         category,
+        main_image,
         date_now,
         date_now
     ]

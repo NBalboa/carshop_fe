@@ -37,8 +37,8 @@ function ProductDetails() {
           
 
           <Col lg="6" md="6">
-            <div className="product__main-img">
-              <img src= {img} alt="" className="w-100" />
+            <div className="product__main-img mt-5">
+              <img src={`http://localhost:3000/${data.main_image}`} alt="" className="w-100" />
               <h1>Rate:<a href="#"><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></a></h1>
             </div>
             

@@ -15,7 +15,7 @@ function Product({product}) {
         <div className="col products">
             <div className='card' style={{ width: "18rem" }}>
                 <Link to={'/productdetails/' + product.id}>
-                    <img src={"http://localhost:3000/images/forrd.jpg"} className="card-img-top p-2" style={{height: 200}} alt="products" />
+                    <img src={`http://localhost:3000/${product.main_image}`} className="card-img-top p-2" style={{height: 200}} alt="products" />
                 </Link>
                 <div className="card-body">
                 <Link to={'/productdetails/' + product.id} className="text-decoration-none text-dark">
@@ -23,7 +23,7 @@ function Product({product}) {
                 </Link>
                     <p className='card-text fw-bolder'>P{(product.price).toFixed(2)}</p>
                     <div className="row gap-2">
-                        <button className="btn btn-danger" onClick={()=>dispatch(addToCart(product))} >ADD TO CART</button>
+                        <button className="btn btn-dark " onClick={()=>dispatch(addToCart(product))} >ADD TO CART</button>
                     </div>
                 </div>
             </div>

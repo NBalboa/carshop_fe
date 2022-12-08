@@ -61,7 +61,7 @@ function AddToCart({product}) {
             </div>
         </MDBCol>
         <MDBCol md="2" className="d-flex justify-content-center">
-                <button className='btn btn-danger m-4' onClick={() => dispatch(removeFromCart(product))} >Delete</button>
+                <button className='btn btn-dark m-4' onClick={() => dispatch(removeFromCart(product))} >Delete</button>
         </MDBCol>
         
     </MDBRow>

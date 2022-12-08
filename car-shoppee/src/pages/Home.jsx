@@ -16,6 +16,7 @@ import b1 from '../assets/img/b1.png'
 import b2 from '../assets/img/b2.jpg'
 import b4 from '../assets/img/b4.jpg'
 import axios from 'axios'
+import Footer from '../components/Footer'
 
 function Home() {
    
@@ -78,6 +79,8 @@ function Home() {
                 </div>
 
             </div>
+            
+            <Footer />
         </div>
     )
 }
