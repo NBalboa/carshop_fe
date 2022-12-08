@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Cards from "../components/Cards";
 import Brand1 from "../assets/img/brand-1.png"
 import Product from "../components/Product";
@@ -12,51 +12,24 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import "../assets/css/products.css"
 import {BsSearch} from "react-icons/bs"
+import pr1 from "../assets/img/pr1.jpg"
+import pr2 from "../assets/img/pr2.png"
+import pr3 from "../assets/img/pr3.jpg"
+import pr4 from "../assets/img/pr4.jpg"
+import pr5 from "../assets/img/pr5.jpg"
+import pr6 from "../assets/img/pr6.png"
+import axios from "axios";
 function Products() {
-    const [items,setItem] = useState([
-        {
-            id: 1,
-            name: "Car Paint",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "my description bitch",
-        },
-        {
-            id: 2,
-            name: "Car Paint",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "my description bitch",
-        },
-        {
-            id: 3,
-            name: "Car Paint",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "my description bitch",
-        },
-        {
-            id: 4,
-            name: "Car Paint",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "my description bitch",
-        },
-        {
-            id: 5,
-            name: "Car Paint",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "my description bitch",
-        },
-        {
-            id: 6,
-            name: "Car Paint",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "my description bitch",
-        }
-    ])
+    const [data, setData] = useState([])
+
+    const handleData = async function() {
+        const {data} = await axios.get("http://localhost:3000/api/product/")
+        console.log(data)
+        setData(data)
+    }
+    useEffect(() => {
+        handleData();
+    }, [])
     return (
         <div>
             <NavBar/>
@@ -78,7 +51,7 @@ function Products() {
             </Container>
             <Container className="m-5">
                 <Row className="gap-4">
-                    {items.map(item => <Product key={item.id} product={item}/>)}
+                    {data.map(item => <Product key={item.id} product={item}/>)}
                 </Row>
             </Container>
             

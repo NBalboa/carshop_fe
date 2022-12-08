@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Brand1 from '../assets/img/headlight.jpg'
 import Brand2 from '../assets/img/light.jpg'
@@ -9,60 +9,27 @@ import Brand6 from '../assets/img/handle.jpg'
 import Cards from '../components/Cards'
 import Product from '../components/Product'
 import NavBar from '../components/NavBar'
-import datas from '../data/datas'
-import honda from '../assets/img/honda.jpg'
-import suzuki from '../assets/img/suzuki.jpg'
-import forrd from '../assets/img/forrd.jpg'
-import hondalogo from '../assets/img/fordlogo.jpg'
-import suzukilogo from '../assets/img/suzukilogo.jpg'
-import fordlogo from '../assets/img/fordlogo.jpg'
-import {useDispatch} from "react-redux"
+import p1 from '../assets/img/p1.jpg'
+import p2 from '../assets/img/carousel.jpg'
+import p3 from '../assets/img/c1.jpg'
+import b1 from '../assets/img/b1.png'
+import b2 from '../assets/img/b2.jpg'
+import b4 from '../assets/img/b4.jpg'
+import axios from 'axios'
 
 function Home() {
-    const [items,setItem] = useState([
-        {
-            id: 1,
-            name: "Headlight",
-            price: 1000.00,
-            path: Brand1 ,
-            description: "A light with a reflector and special lens mounted on the front of a vehicle to illuminate the road ahead",
-        },
-        {
-            id: 2,
-            name: "BreakLight",
-            price: 1000.00,
-            path: Brand2 ,
-            description: "A red light attached to the rear of a motor vehicle that lights up when the brakes are applied."
-        },
-        {
-            id: 3,
-            name: "Mirror",
-            price: 1000.00,
-            path: Brand3 ,
-            description: "my description bitch",
-        },
-        {
-            id: 4,
-            name: "Steering Wheel",
-            price: 1000.00,
-            path: Brand4 ,
-            description: "my description bitch",
-        },
-        {
-            id: 5,
-            name: "Door",
-            price: 1000.00,
-            path: Brand5 ,
-            description: "my description bitch",
-        },
-        {
-            id: 6,
-            name: "Handle",
-            price: 1000.00,
-            path: Brand6 ,
-            description: "my description bitch",
-        }
-    ])
+   
+    const [data, setData] = useState([])
+
+    const handleData = async function() {
+        const {data} = await axios.get("http://localhost:3000/api/product/")
+        console.log(data)
+        setData(data)
+    }
+
+    useEffect(() => {
+        handleData()
+    },[])
 
 
     return (
@@ -77,13 +44,13 @@ function Home() {
                 </div>
                 <div className='carousel-inner'>
                     <div className='carousel-item active '>
-                        <img src={honda} className='w-100' height="400" alt='honda'></img>
+                        <img src={p1} className='w-100' height="500" alt='honda'></img>
                     </div>
                     <div className='carousel-item active '>
-                        <img src={suzuki} className='w-100' height="400" alt='suzuki'></img>
+                        <img src={p2} className='w-100' height="500" alt='suzuki'></img>
                     </div>
                     <div className='carousel-item active '>
-                        <img src={forrd} className='w-100 ' height="400" alt='forrd'></img>
+                        <img src={p3} className='w-100 ' height="500" alt='forrd'></img>
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselHighlightedProducts" data-bs-slide="prev">
@@ -98,17 +65,16 @@ function Home() {
             <div className='container-lg mb-5'>
                 <h1 className='text-dark'>Brands</h1>
                 <div className='card-group mt-2'>
-                    <Cards image={hondalogo} />
-                    <Cards image={suzukilogo} />
-                    <Cards image={fordlogo} />
-                    <Cards image={suzukilogo} />
-                    <Cards image={hondalogo} />
+                    <Cards image={b1} />
+                    <Cards image={b2} />
+                    <Cards image={b4} />
+                    
                 </div>
             </div>
             <div className='container-lg mb-5'>
                 <h1>Featured Products</h1>
                 <div className='row gap-3'>
-                {items.map(item => <Product key={item.id} product={item}/>)}
+                {data.map(item => <Product key={item.id} product={item}/>)}
                 </div>
 
             </div>

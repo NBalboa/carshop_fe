@@ -24,7 +24,7 @@ import { getTotal } from "../features/cartSlice";
 
 function Cart() {
   const cart = useSelector((item) => item.user)
-  const totalPrice = cart.cartItems.reduce((acc, item) => acc + item.cartQuantity * item.price, 0).toFixed(2);
+  const totalPrice = cart.cartItems.reduce((acc, item) => acc + (item.cartQuantity * item.price), 0).toFixed(2);
   const totalQuantity = cart.cartItems.reduce((acc, item) => acc + item.cartQuantity + 0, 0);
   console.log(totalQuantity);
   return (

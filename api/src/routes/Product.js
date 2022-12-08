@@ -15,6 +15,29 @@ router.get('/', async function(req,res) {
     })
 })
 
+router.get('/:id', async function(req,res){
+    const db = new Database();
+    const conn = db.connection;
+    const {id} = req.params
+    await conn.connect((err) => {
+        if(err) throw err;
+        conn.query("SELECT * FROM products WHERE id = ?",[id] ,(error, result) => {
+            if(err) throw err;
+            res.json(result)
+        });
+    })
+})
+
+router.get('/featured', async function(req, res) {
+    const db = new Database();
+    const conn = db.connection;
+
+    conn.query("SELECT * FROM products WHERE featured = 0", [0] ,(err, result) => {
+        if(err) throw err;
+        res.json(result)
+    });
+})
+
 router.post('/add', async function(req, res) {
     const db = new Database();
     const conn = db.connection;

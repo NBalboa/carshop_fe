@@ -24,7 +24,7 @@ function Register() {
             password: password
         }
         try{
-            await axios.put('http://localhost:3000/api/user/add', userDetails)
+            await axios.post('http://localhost:3000/api/user/add', userDetails)
             navigate('/')
         }catch(err){
             console.log(err)

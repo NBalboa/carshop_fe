@@ -45,7 +45,7 @@ router.get('/:id', async function(req,res) {
     const {id} = req.params
     await conn.connect((err) => {
         if(err) throw err;
-        conn.query("SELECT * FROM products WHERE id = ?",[id] ,(error, result) => {
+        conn.query("SELECT * FROM users WHERE id = ?",[id] ,(error, result) => {
             if(err) throw err;
             res.json(result)
         });

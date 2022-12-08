@@ -1,11 +1,31 @@
 import NavBar from "../components/NavBar";
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../assets/css/productdetails.css";
 import img from "../assets/img/brand-1.png"
 import { AiFillStar } from "react-icons/ai";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
 
 function ProductDetails() {
+  let {id} = useParams()
+  const [data, setData] = useState([])
+
+  const handleData = async function() {
+    const {data} = await axios.get(`http://localhost:3000/api/product/${id}`)
+    console.log(data[0])
+    setData(data[0])
+  }
+
+    useEffect(() => {
+      handleData();
+  }, [])
+
+  const dispatch = useDispatch()
+
   return (
     <div>
 
@@ -26,15 +46,15 @@ function ProductDetails() {
 
           <Col lg="6" md="6">
             <div className="single__product-content">
-              <h2 className="product__title mb-3">TITLE NI</h2>
+              <h2 className="product__title mb-3">{data.name}</h2>
               <p className="product__price">
-               <span> Product description</span>
+               <span>{data.description}</span>
               </p>
               <p className="product__price">
-                Price: <span>₱ 999</span>
+                Price: <span>₱{data.price}</span>
               </p>
               <p className="category mb-2">
-                Available: <span>999</span>
+                Available: <span>{data.stocks}</span>
               </p>
               <p className="category mb-2 " >
                  Quantity:
@@ -42,7 +62,7 @@ function ProductDetails() {
               <div className="input number">
                <input className="quantity fw-bold text-black" min={0}  defaultValue={1} type="number"  />
                </div>
-              <button className="addTOCart__btn">
+              <button className="addTOCart__btn" onClick={() => dispatch(addToCart(data)) }>
                 Add to Cart
               </button>
             </div>
