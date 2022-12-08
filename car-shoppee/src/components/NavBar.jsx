@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/img/Logo.png'
+import footer from './Footer'
 
 
 
@@ -38,7 +39,7 @@ function NavBar() {
                     <ul className='navbar-nav ms-md-auto gap-2'>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-success w-25" type="submit">Search</button>
+                            <button className="btn btn-dark success w-25" type="submit">Search</button>
                         </form>
                         <li className='navbar-item rounded'>
                             <Link className='nav-link active text-white fs-5' to='/login'>Login</Link>
@@ -48,6 +49,7 @@ function NavBar() {
                         </li>
                     </ul>
                 </div>
+                
             </div>
         </nav>
     )
