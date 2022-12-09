@@ -14,7 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoginAdmin from './pages/LoginAdmin'
 import ProductDetails from './pages/ProductDetails'
 import Profile from './pages/Profile'
-import AddProduct from './pages/AddProduct'
+import AddProduct from './components/AddProduct'
+import ProductList from './pages/ProductList'
+import EditProduct from './pages/EditProduct'
+import NotFound from './pages/NotFound'
 
 
 
@@ -36,6 +39,9 @@ function App() {
               <Route path='/productdetails/:id' element={<ProductDetails/>}/>
               <Route path='/profile' element={<Profile/>}/>
               <Route path='/addproduct' element={<AddProduct/>}/>
+              <Route path='/productlist' element={<ProductList/>}/>
+              <Route path='/editproduct/:id' element={<EditProduct/>}/>
+              <Route path='*' element={<NotFound/>}/>
           </Routes>
           <ToastContainer/>
       

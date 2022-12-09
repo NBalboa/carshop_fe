@@ -109,15 +109,14 @@ router.put('/edit/:id', async function(req,res) {
     const {name,brand,price,description,stocks,featured, thumbnails,category} = req.body
     date_now = date = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-    const query = "UPDATE products SET name = ?, brand = ?, price = ?, description = ?, stocks = ?, featured = ?, thumbnails = ?, category = ?, updated_at = ? WHERE id = ?"
+    const query = "UPDATE products SET name = ?, brand = ?, price = ?, description = ?, stocks = ?, featured = ?, category = ?, updated_at = ? WHERE id = ?"
     const values = [
         name,
         brand,
-        price,
+        parseFloat(price),
         description,
-        stocks,
+        parseInt(stocks),
         featured,
-        JSON.stringify(thumbnails),
         category,
         date_now,
         id
@@ -141,14 +140,12 @@ router.delete('/delete/:id', async function(req, res) {
     const {id} = req.params
     const query = "DELETE FROM products WHERE id = ?"
 
-
-
     await conn.connect((err) => {
         if(err) throw err;
         conn.query(query,id,(err,result) => {
             if(err) throw err;
             console.log(result)
-            res.json({message: "Product deleted succesfully"})
+            res.json(result)
         })
     })
 })
