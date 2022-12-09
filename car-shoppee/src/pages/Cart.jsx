@@ -16,16 +16,21 @@ import Row from 'react-bootstrap/Row'
 import Brand2 from "../assets/img/brand-2.png"
 import Product from "../components/Product";
 import Cards from '../components/Cards'
-import { Link } from 'react-router-dom';
 import AddToCart from '../components/AddToCart';
 import {useSelector, useDispatch} from 'react-redux';
 import { getTotal } from "../features/cartSlice";
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Cart() {
   const cart = useSelector((item) => item.user)
   const totalPrice = cart.cartItems.reduce((acc, item) => acc + (item.cartQuantity * item.price), 0).toFixed(2);
   const totalQuantity = cart.cartItems.reduce((acc, item) => acc + item.cartQuantity + 0, 0);
+  const navigate = useNavigate()
+  const handleContinue = () => {
+    navigate('/')
+  }
+
   console.log(totalQuantity);
   return (
     <div>
@@ -39,7 +44,7 @@ function Cart() {
             </p>
             <MDBCard className="mb-4">
               <MDBCardBody className="p-4">
-                {cart.cartItems.length === 0 ? (<h1>Empty Carty</h1>): (
+                {cart.cartItems.length === 0 ? (<h1>Empty Cart</h1>): (
                   cart.cartItems.map((item) => <AddToCart key={item.id} product={item}/>)
                 )} 
               </MDBCardBody>
@@ -57,10 +62,10 @@ function Cart() {
             </MDBCard>
 
             <div className="d-flex justify-content-end">
-              <MDBBtn color="dark" size="lg" className="me-2">
+              <MDBBtn color="dark" size="sm" className="me-2" onClick={handleContinue}>
                 Continue shopping
               </MDBBtn>
-              <MDBBtn size="lg" color="secondary"><Link className='text-decoration-none text-dark' to='/checkout'>Check Out</Link></MDBBtn>
+              <MDBBtn size="sm" color="secondary"><Link className='text-decoration-none text-dark' to='/checkout'>Check Out</Link></MDBBtn>
             </div>
           </MDBCol>
         </MDBRow>

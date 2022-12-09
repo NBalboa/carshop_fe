@@ -10,6 +10,7 @@ import "../assets/css/about.css";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Profile from '../components/Profile'
+import Footer from '../components/footer'
 
 function About() {
   return (
@@ -37,6 +38,7 @@ function About() {
                 </Row>
             </Container>
           </div>
+          <Footer />
         </div>
   )
 }

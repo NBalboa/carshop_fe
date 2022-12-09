@@ -19,14 +19,35 @@ import pr4 from "../assets/img/pr4.jpg"
 import pr5 from "../assets/img/pr5.jpg"
 import pr6 from "../assets/img/pr6.png"
 import axios from "axios";
+import Footer from "../components/footer";
 function Products() {
     const [data, setData] = useState([])
+    const [info, setInfo] = useState('')
+    const [about, setAbout] = useState('name')
 
     const handleData = async function() {
         const {data} = await axios.get("http://localhost:3000/api/product/")
         console.log(data)
         setData(data)
     }
+    const handleSearch = async function(e) {
+        e.preventDefault()
+        console.log(`${info} ${about}`)
+        const search = {
+            info: info,
+            about: about
+          }
+
+        const {data} = await axios.post("http://localhost:3000/api/product/search", search, {responseType: "json"})
+        console.log(data)
+        if(data.result.length > 0){
+            setData(data.result)
+        }
+        else{
+            alert("Product doesn't exist")
+        }
+    }
+
     useEffect(() => {
         handleData();
     }, [])
@@ -38,12 +59,12 @@ function Products() {
             <div className="modal-body">
                     <div className="search">
                         <form action="">
-                            <input type="text" placeholder="Search..."/>
-                            <select name="" id="">
-                                <option value="">Name</option>
-                                <option value="">Category</option>
+                            <input type="text" placeholder="Search..." value={info} onChange={(e) => setInfo(e.target.value)}/>
+                            <select name="about" id="" value={about} onChange={(e) => setAbout(e.target.value) }>
+                                <option value="name">Name</option>
+                                <option value="category">Category</option>
                             </select>
-                            <button type="submit"><a href='#'><BsSearch/></a></button>
+                            <button type="submit" onClick={handleSearch}><a href='#'><BsSearch/></a></button>
                         </form>
                       </div>
                 </div>
@@ -55,7 +76,7 @@ function Products() {
                 </Row>
             </Container>
             
-
+            <Footer />
         </div>
     )
 }

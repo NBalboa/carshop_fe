@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoginAdmin from './pages/LoginAdmin'
 import ProductDetails from './pages/ProductDetails'
 import Profile from './pages/Profile'
+import AddProduct from './pages/AddProduct'
 
 
 
@@ -34,6 +35,7 @@ function App() {
               <Route path='/login/admin' element={<LoginAdmin/>}/>
               <Route path='/productdetails/:id' element={<ProductDetails/>}/>
               <Route path='/profile' element={<Profile/>}/>
+              <Route path='/addproduct' element={<AddProduct/>}/>
           </Routes>
           <ToastContainer/>
       

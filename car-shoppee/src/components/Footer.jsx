@@ -55,48 +55,48 @@ export default function footer() {
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  
-                </a>
-              </p>
-              <p>
                 <Link to='/productdetails/9' className='text-reset'>
-                    Steering Wheel
+                  Mirror
                 </Link>
               </p>
               <p>
                 <Link to='/productdetails/10' className='text-reset'>
+                    Steering Wheel
+                </Link>
+              </p>
+              <p>
+                <Link to='/productdetails/11' className='text-reset'>
                   Handle
                 </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
-                </a>
+                <Link to='/productdetails/12' className='text-reset'>
+                  Light
+                </Link>
               </p>
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  Pricing
-                </a>
+                <Link  to='#' className='text-reset'>
+                  Home
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Settings
-                </a>
+                <Link to='#' className='text-reset'>
+                  Login
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Orders
-                </a>
+                <Link to='#' className='text-reset'>
+                  Products
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Help
-                </a>
+                <Link to='#' className='text-reset'>
+                  About
+                </Link>
               </p>
             </MDBCol>
 
@@ -104,17 +104,17 @@ export default function footer() {
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
               <p>
                 <MDBIcon icon="home" className="me-2" />
-                New York, NY 10012, US
+                Zamboanga Del Sur, Pagadian City, Bulatok, Philippines
               </p>
               <p>
                 <MDBIcon icon="envelope" className="me-3" />
-                info@example.com
+                AYTOKINHTO@GMAIL.COM
               </p>
               <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
+                <MDBIcon icon="phone" className="me-3" /> + 950 0117 765
               </p>
               <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
+                <MDBIcon icon="print" className="me-3" /> + 966 7708 659
               </p>
             </MDBCol>
           </MDBRow>

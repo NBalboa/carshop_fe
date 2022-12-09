@@ -11,7 +11,7 @@ function Profile() {
         </div>
         <div className="col-7">
             <p className='text-start h3 fw-bold font-monospace'>Name: <strong className='h5 font-monospace'>Nicko Senpai</strong></p>
-            <p className='text-start h3 fw-bold font-monospace'>Email: <strong className='h5 font-monospace'>pornhub@gmail.com</strong></p>
+            <p className='text-start h3 fw-bold font-monospace'>Email: <strong className='h5 font-monospace'>nickojek2x@gmail.com</strong></p>
             <p className='text-start h3 fw-bold font-monospace'>Contact Number: <strong className='h5 font-monospace'>09876543210</strong></p>
             <p className='text-start h3 fw-bold font-monospace'>Address: <strong className='h5 font-monospace'>Brgy. Madasigon, Bulatok Molave ZDS</strong></p>
         </div>

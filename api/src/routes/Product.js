@@ -1,6 +1,8 @@
 const express = require("express");
 const Database = require("../configs/Database");
 const router = express.Router();
+const path = require("path");
+
 
 router.get('/', async function(req,res) {
     const db = new Database();
@@ -14,6 +16,35 @@ router.get('/', async function(req,res) {
         });
     })
 })
+
+
+router.post('/search', async function(req, res){
+    const db = new Database();
+    const conn = db.connection;
+    let query = ""
+    if(req.body.about === "name"){
+         query = `SELECT * FROM products WHERE name LIKE '%${req.body.info}%'`
+    }
+    else {
+         query = `SELECT * FROM products WHERE category LIKE '%${req.body.info}%'`
+    }
+
+
+    const values = [
+        req.body.info,
+    ]
+
+    await conn.connect((err) => {
+        if(err) throw err
+        conn.query(query, (err, result) => {
+            if(err) throw err;
+            return res.json({result})
+        })
+    })
+
+})
+
+
 
 router.get('/:id', async function(req,res){
     const db = new Database();

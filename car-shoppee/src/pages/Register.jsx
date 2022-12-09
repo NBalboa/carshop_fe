@@ -4,6 +4,7 @@ import Login from './Login'
 import exstyle from '../assets/css/exstyle.css'
 
 import axios from 'axios'
+import footer from '../components/footer'
 
 
 function Register() {

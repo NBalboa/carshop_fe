@@ -65,12 +65,12 @@
   }
 
   button{
-      width: 300px;
+      width: 100px;
       height: 50px;
       border-radius: 10px;
-      background-color: #b103fc;
+      background-color: #000;
       color: white;
-      font-size: 25px;
+      font-size: 14px;
       border: none;
   }
   .login-button{

@@ -9,6 +9,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
+import Footer from "../components/footer";
 
 function ProductDetails() {
   let {id} = useParams()
@@ -34,11 +35,9 @@ function ProductDetails() {
     <div className="details"><section>
       <Container>
         <Row>
-          
-
           <Col lg="6" md="6">
             <div className="product__main-img mt-5">
-              <img src={`http://localhost:3000/${data.main_image}`} alt="" className="w-100" />
+              <img src={`http://localhost:3000/${data.main_image}`} alt="" className="w-100" style={{height:350}} />
               <h1>Rate:<a href="#"><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></a></h1>
             </div>
             
@@ -90,6 +89,7 @@ function ProductDetails() {
             </Container>
             </section>
             </div>
+            <Footer/>
             </div>
   )
 }

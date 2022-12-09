@@ -1,6 +1,14 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 function CheckOut() {
+
+    const navigate = useNavigate()
+
+    const handleOrder = () => {
+        alert("Order added to database then route to Home")
+        navigate("/")
+    }
   return (
 
     <div className="checkout">
@@ -117,59 +125,9 @@ function CheckOut() {
                         <input type="checkbox" className="form-check-input" id="save-info" />
                         <label className="form-check-label" for="save-info">Save this information for next time</label>
                     </div>
-                    <hr className="mb-4" />
 
-                    <h4 className="mb-3">Payment</h4>
-
-                    <div className="d-block my-3">
-                        <div className="form-check">
-                        <input id="credit" name="paymentMethod" type="radio" className="form-check-input" checked required />
-                        <label className="form-check-label" for="credit">Credit card</label>
-                        </div>
-                        <div className="form-check">
-                        <input id="debit" name="paymentMethod" type="radio" className="form-check-input" required />
-                        <label className="form-check-label" for="debit">Debit card</label>
-                        </div>
-                        <div className="form-check">
-                        <input id="paypal" name="paymentMethod" type="radio" className="form-check-input" required />
-                        <label className="form-check-label" for="paypal">Paypal</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-6 mb-3">
-                        <label for="cc-name" className="form-label">Name on card</label>
-                        <input type="text" className="form-control" id="cc-name" placeholder="" required />
-                        <small className="text-muted">Full name as displayed on card</small>
-                        <div className="invalid-feedback">
-                            Name on card is required
-                        </div>
-                        </div>
-                        <div className="col-md-6 mb-3">
-                        <label for="cc-number" className="form-label">Credit card number</label>
-                        <input type="text" className="form-control" id="cc-number" placeholder="" required />
-                        <div className="invalid-feedback">
-                            Credit card number is required
-                        </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 mb-3">
-                        <label for="cc-expiration" className="form-label">Expiration</label>
-                        <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
-                        <div className="invalid-feedback">
-                            Expiration date required
-                        </div>
-                        </div>
-                        <div className="col-md-3 mb-3">
-                        <label for="cc-expiration" className="form-label">CVV</label>
-                        <input type="text" className="form-control" id="cc-cvv" placeholder="" required />
-                        <div className="invalid-feedback">
-                            Security code required
-                        </div>
-                        </div>
-                    </div>
                     <hr className="mb-4" />
-                    <button className="btn btn-dark px-4 rounded-pill" type="button">Place Order</button>
+                    <button className="btn btn-dark px-4 rounded-pill" type="button" onClick={handleOrder} >Place Order</button>
                     </form>
                 </div>
                 </div>

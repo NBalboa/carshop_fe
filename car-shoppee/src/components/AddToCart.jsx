@@ -29,7 +29,7 @@ function AddToCart({product}) {
         <MDBCol md="2">
             <Container className="m-5">
                 <Row className="gap-4">
-                    <Cards image={product.path} />
+                    <Cards image={`http://localhost:3000/${product.main_image}`} />
                 </Row>
             </Container>
         </MDBCol>
@@ -60,8 +60,8 @@ function AddToCart({product}) {
                 <p className="lead fw-normal mb-0">P{product.price * product.cartQuantity}</p>
             </div>
         </MDBCol>
-        <MDBCol md="2" className="d-flex justify-content-center">
-                <button className='btn btn-dark m-4' onClick={() => dispatch(removeFromCart(product))} >Delete</button>
+        <MDBCol  md="2" className="d-flex justify-content-center">
+                <button className='btn btn-danger m-4' onClick={() => dispatch(removeFromCart(product))} >Delete</button>
         </MDBCol>
         
     </MDBRow>

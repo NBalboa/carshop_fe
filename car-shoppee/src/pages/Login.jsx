@@ -4,6 +4,7 @@ import exstyle from '../assets/css/exstyle.css'
 import user from '../assets/img/user.png'
 import Register from './Register'
 import axios from 'axios'
+import Footer from '../components/footer'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -31,7 +32,8 @@ function Login() {
 
 
   return (
-    <div className="main">
+    <div>
+       <div className="main">
     <div className="sub-main">
       <div>
         <div className="imgs">
@@ -57,10 +59,11 @@ function Login() {
             </div>
         </div>
       </div>
-      
-
     </div>
+    </div>
+    <Footer/>
    </div>
+   
  
   )
 }
